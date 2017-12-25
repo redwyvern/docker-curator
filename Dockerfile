@@ -24,5 +24,5 @@ RUN touch crontab.tmp \
 
 #USER nobody:nobody
 
-CMD ['/usr/sbin/crond', '-l 2', '-f']
+CMD [ '/usr/sbin/crond', '-l 2', '-f' ]
 
