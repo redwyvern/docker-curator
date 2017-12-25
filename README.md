@@ -2,5 +2,5 @@
 
 This image runs elasticsearch curator as a cronjob.
 
-The iamge has been customized to purge particular indices at regular intervals.
+The iamge was originally based on [bobrik/curator](https://hub.docker.com/r/bobrik/curator/) but has been customized to purge particular indices at regular intervals.
 
