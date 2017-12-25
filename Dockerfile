@@ -21,4 +21,4 @@ RUN touch crontab.tmp \
     && crontab crontab.tmp \
     && rm -rf crontab.tmp
 
-CMD /usr/sbin/crond -f
+CMD /usr/bin/curator /opt/curator/actions.yml --config /opt/curator/curator.yml && /usr/sbin/crond -f
