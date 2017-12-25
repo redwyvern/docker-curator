@@ -15,14 +15,10 @@ RUN mkdir -p /opt/curator
 COPY curator.yml /opt/curator
 COPY actions.yml /opt/curator
 
+# Run the actions daily
 RUN touch crontab.tmp \
-    && echo '* * * * * /usr/bin/curator /opt/curator/actions.yml --config /opt/curator/curator.yml' > crontab.tmp \
-    #&& echo '* */6 * * * /usr/bin/php /var/www/partkeepr/app/console partkeepr:cron:run' > crontab.tmp \
-    #&& echo '0 2   * * * /usr/bin/sql_backup' >> crontab.tmp \
+    && echo '25 6 * * * /usr/bin/curator /opt/curator/actions.yml --config /opt/curator/curator.yml' > crontab.tmp \
     && crontab crontab.tmp \
     && rm -rf crontab.tmp
 
-#USER nobody:nobody
-
 CMD /usr/sbin/crond -f
-
