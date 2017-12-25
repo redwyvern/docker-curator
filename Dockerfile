@@ -10,6 +10,12 @@ RUN apk --no-cache add python py-setuptools py-pip gcc libffi py-cffi python-dev
     sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator && \
     sed -i '/import sys/a import urllib3' /usr/bin/curator
 
+#RUN touch crontab.tmp \
+#    && echo '* */6 * * * /usr/bin/php /var/www/partkeepr/app/console partkeepr:cron:run' > crontab.tmp \
+#    && echo '0 2   * * * /usr/bin/sql_backup' >> crontab.tmp \
+#    && crontab crontab.tmp \
+#    && rm -rf crontab.tmp
+
 USER nobody:nobody
 
 ENTRYPOINT ["/usr/bin/curator"]
